@@ -1,11 +1,13 @@
 package co.edu.unal.chess;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.logging.Logger;
 
 public class ChessAnnotator {
 
     private final Logger logger = Logger.getLogger(ChessAnnotator.class.getName());
+    private final ArrayList<Position> positions = new ArrayList<>();
 
     private String whiteName;
     private String blackName;
@@ -19,6 +21,17 @@ public class ChessAnnotator {
 
         annotator.getLogger().info("Ingrese el nombre del que juega negras");
         annotator.setBlackName(in.nextLine());
+
+        while (true) {
+            annotator.getLogger().info("Escriba un movimiento o una operación (*imprimir, *eliminar, *editar)");
+
+            var instruction = in.nextLine();
+
+            switch (instruction) {
+                case "":
+                    break;
+            }
+        }
     }
 
     public Logger getLogger() {
