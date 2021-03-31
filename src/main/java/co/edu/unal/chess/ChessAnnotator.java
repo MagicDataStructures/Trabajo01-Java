@@ -38,8 +38,9 @@ public class ChessAnnotator {
                     " *consultar, *eliminar, *editar, *capturas, *salir):");
 
             var instruction = input.nextLine();
+            var parameters = instruction.split(" ");
 
-            switch (instruction) {
+            switch (parameters[0]) {
                 // Imprimir (mostrar en consola) en cualquier momento el listado de jugadas
                 //  guardadas.
                 case "*imprimir":
