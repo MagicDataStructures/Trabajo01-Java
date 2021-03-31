@@ -12,7 +12,7 @@ public class ChessAnnotator {
 
     private final Logger logger = Logger.getLogger(ChessAnnotator.class.getName());
     private final ArrayList<GameRound> rounds = new ArrayList<>();
-    private final ArrayList<GameRound> captures = new ArrayList<>();
+    private final ArrayList<GameMove> captures = new ArrayList<GameMove>();
 
     private final Scanner input;
 
@@ -97,6 +97,10 @@ public class ChessAnnotator {
                     // consultar las fichas capturadas
                     //  debe ordenar las fichas por el orden alfabético y color
                     case "*capturas": {
+                        for (int i = 0, roundsSize = rounds.size(); i < roundsSize; i++) {
+                            var round = captures.get(i);
+                            getLogger().info("%d. %s".formatted(i + 1, round.toString()));
+                        }
                         break;
                     }
                     // Consultar las rondas guardadas
@@ -162,6 +166,9 @@ public class ChessAnnotator {
 
             if (matcher.group("Capture") != null) {
                 move.setMoveType(GameMove.GameMoveType.CAPTURE);
+
+                captures.add(move);
+                captures.sort(new GameMoveSorter());
             } else if (matcher.group("Check") != null) {
                 move.setMoveType(GameMove.GameMoveType.CHECK);
             } else if (matcher.group("CheckMate") != null) {

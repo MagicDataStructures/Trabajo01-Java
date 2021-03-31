@@ -2,6 +2,10 @@
 
 Sistema de anotación de partidas de ajedrez.
 
+## Uso 😇
+
+Instala Java 15 y luego... `./gradlew run` Fácil...
+
 ## Objetivos 😎
 
 - Inscribir a ambos jugadores, así como del color de las fichas con las que van a
