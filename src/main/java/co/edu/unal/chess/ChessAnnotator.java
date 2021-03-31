@@ -12,7 +12,7 @@ public class ChessAnnotator {
 
     private final Logger logger = Logger.getLogger(ChessAnnotator.class.getName());
     private final ArrayList<GameRound> rounds = new ArrayList<>();
-    private final ArrayList<GameMove> captures = new ArrayList<GameMove>();
+    private final ArrayList<GameMove> captures = new ArrayList<>();
 
     private final Scanner input;
 
@@ -52,9 +52,7 @@ public class ChessAnnotator {
 
             try {
                 switch (parameters[0]) {
-                    // Imprimir (mostrar en consola) en cualquier momento el listado de jugadas
-                    //  guardadas.
-                    case "*imprimir": {
+                    case "*imprimir" -> {
                         getLogger().info("[White \"%s\"]".formatted(getWhiteName()));
                         getLogger().info("[Black \"%s\"]".formatted(getBlackName()));
 
@@ -62,10 +60,8 @@ public class ChessAnnotator {
                             var round = rounds.get(i);
                             getLogger().info("%d. %s".formatted(i + 1, round.toString()));
                         }
-                        break;
                     }
-                    // Adición de una ronda en medio de la partida
-                    case "*insertar": {
+                    case "*insertar" -> {
                         var pos = Integer.parseInt(checkArgument(parameters, 1));
                         var white = checkArgument(parameters, 2);
                         var black = checkArgument(parameters, 3);
@@ -73,18 +69,15 @@ public class ChessAnnotator {
                         rounds.add(pos, parseAnnotation("%s %s".formatted(white, black)));
 
                         getLogger().info("Se ha insertado un elemento");
-                        break;
                     }
-                    case "*eliminar": {
+                    case "*eliminar" -> {
                         var pos = Integer.parseInt(checkArgument(parameters, 1));
 
                         rounds.remove(pos);
 
                         getLogger().info("Se ha eliminado un elemento");
-                        break;
                     }
-                    // Corrección de las anotaciones realizadas en una ronda.
-                    case "*editar": {
+                    case "*editar" -> {
                         var pos = Integer.parseInt(checkArgument(parameters, 1));
                         var white = checkArgument(parameters, 2);
                         var black = checkArgument(parameters, 3);
@@ -92,33 +85,24 @@ public class ChessAnnotator {
                         rounds.set(pos, parseAnnotation("%s %s".formatted(white, black)));
 
                         getLogger().info("Se ha editado un elemento");
-                        break;
                     }
-                    // consultar las fichas capturadas
-                    //  debe ordenar las fichas por el orden alfabético y color
-                    case "*capturas": {
+                    case "*capturas" -> {
                         for (int i = 0, roundsSize = rounds.size(); i < roundsSize; i++) {
                             var round = captures.get(i);
                             getLogger().info("%d. %s".formatted(i + 1, round.toString()));
                         }
-                        break;
                     }
-                    // Consultar las rondas guardadas
-                    case "*consultar": {
+                    case "*consultar" -> {
                         var pos = Integer.parseInt(checkArgument(parameters, 1));
 
                         getLogger().info(rounds.get(pos).toString());
-                        break;
                     }
-                    case "*salir": {
+                    case "*salir" -> {
                         return;
                     }
-                    // Anotar cada una de las rondas sin límite alguno y siguiendo el sistema de
-                    //  anotación estándar.
-                    default: {
+                    default -> {
                         rounds.add(parseAnnotation(instruction));
                         getLogger().info("Se ha insertado un elemento");
-                        break;
                     }
                 }
             } catch (Exception e) {
