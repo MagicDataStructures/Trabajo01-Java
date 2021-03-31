@@ -11,7 +11,7 @@ public class PieceFactory {
             case "R" -> new Rook();
             case "B" -> new Bishop();
             case "N" -> new Knight();
-            default -> null;
+            default -> new Pawn();
         };
     }
 }
