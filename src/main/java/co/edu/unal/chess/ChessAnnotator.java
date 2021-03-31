@@ -4,6 +4,7 @@ import java.util.Scanner;
 import java.util.logging.Logger;
 
 public class ChessAnnotator {
+
     private final Logger logger = Logger.getLogger(ChessAnnotator.class.getName());
 
     private String whiteName;
