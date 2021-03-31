@@ -6,8 +6,8 @@ public class Position {
     private byte vertical;
 
     public Position(String input) {
-        horizontal = Horizontal.valueOf(("" + input.charAt(0)).toUpperCase());
-        vertical = Byte.parseByte("" + input.charAt(1));
+        horizontal = Horizontal.valueOf(String.format("%S", input.charAt(0)));
+        vertical = Byte.parseByte(String.format("%s", input.charAt(1)));
     }
 
     public Horizontal getHorizontal() {
