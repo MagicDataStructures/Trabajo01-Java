@@ -109,6 +109,11 @@ public class ChessAnnotator {
             piece.setColor(color);
             move.setPiece(piece);
 
+            var column = Byte.parseByte(matcher.group("Column"));
+            var row = Position.Horizontal.valueOf(matcher.group("Row").toUpperCase());
+
+            move.setPosition(new Position(row, column));
+
             if (matcher.group("Capture") != null) {
                 move.setMoveType(GameMove.GameMoveType.CAPTURE);
             } else if (matcher.group("Check") != null) {

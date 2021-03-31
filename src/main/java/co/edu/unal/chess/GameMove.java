@@ -1,13 +1,17 @@
 package co.edu.unal.chess;
 
 import co.edu.unal.chess.pieces.Piece;
-
-import javax.annotation.Nullable;
+import org.jetbrains.annotations.Nullable;
 
 public class GameMove {
 
+    @Nullable
     private Piece piece;
+
     private GameMoveType moveType;
+
+    @Nullable
+    private Position position;
 
     public GameMove() {
         super();
@@ -36,6 +40,23 @@ public class GameMove {
         this.piece = piece;
     }
 
+    public Position getPosition() {
+        return position;
+    }
+
+    public void setPosition(Position position) {
+        this.position = position;
+    }
+
+    @Override
+    public String toString() {
+        return "GameMove{" +
+                "piece=" + piece +
+                ", moveType=" + moveType +
+                ", position=" + position +
+                '}';
+    }
+
     public enum GameMoveType {
         NORMAL,
         CAPTURE,
@@ -45,13 +66,5 @@ public class GameMove {
         QUEEN_SIDE_CASTLING,
         CASTLING,
         END,
-    }
-
-    @Override
-    public String toString() {
-        return "GameMove{" +
-                "piece=" + piece +
-                ", moveType=" + moveType +
-                '}';
     }
 }

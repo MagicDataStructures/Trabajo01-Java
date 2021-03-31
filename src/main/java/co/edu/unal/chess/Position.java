@@ -5,9 +5,9 @@ public class Position {
     private Horizontal horizontal;
     private byte vertical;
 
-    public Position(String input) {
-        horizontal = Horizontal.valueOf(String.format("%S", input.charAt(0)));
-        vertical = Byte.parseByte(String.format("%s", input.charAt(1)));
+    public Position(Horizontal horizontal, byte vertical) {
+        this.horizontal = horizontal;
+        this.vertical = vertical;
     }
 
     public Horizontal getHorizontal() {
@@ -35,5 +35,13 @@ public class Position {
         F,
         G,
         H
+    }
+
+    @Override
+    public String toString() {
+        return "Position{" +
+                "horizontal=" + horizontal +
+                ", vertical=" + vertical +
+                '}';
     }
 }
