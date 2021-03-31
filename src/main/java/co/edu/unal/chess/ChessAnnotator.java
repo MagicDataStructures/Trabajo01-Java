@@ -28,11 +28,18 @@ public class ChessAnnotator {
             var instruction = in.nextLine();
 
             switch (instruction) {
-                case "":
+                case "imprimir":
+                    break;
+                case "eliminar":
+                    break;
+                case "editar":
+                    break;
+                case "capturar":
                     break;
             }
         }
     }
+
 
     public Logger getLogger() {
         return logger;
