@@ -50,11 +50,7 @@ public class GameMove {
 
     @Override
     public String toString() {
-        return "GameMove{" +
-                "piece=" + piece +
-                ", moveType=" + moveType +
-                ", position=" + position +
-                '}';
+        return "[Pieza=%s, Movimiento=%s, Posición=%s]".formatted(piece, moveType, position);
     }
 
     public enum GameMoveType {

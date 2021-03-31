@@ -39,9 +39,6 @@ public class Position {
 
     @Override
     public String toString() {
-        return "Position{" +
-                "horizontal=" + horizontal +
-                ", vertical=" + vertical +
-                '}';
+        return "%s%s".formatted(horizontal, vertical);
     }
 }

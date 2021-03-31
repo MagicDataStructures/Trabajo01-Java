@@ -34,9 +34,6 @@ public class GameRound {
 
     @Override
     public String toString() {
-        return "GameRound{" +
-                "whiteMove=" + whiteMove +
-                ", blackMove=" + blackMove +
-                '}';
+        return "Blanco=%s, Negro=%s".formatted(whiteMove, blackMove);
     }
 }

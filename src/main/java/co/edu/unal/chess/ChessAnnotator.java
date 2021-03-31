@@ -11,7 +11,8 @@ import java.util.regex.Pattern;
 public class ChessAnnotator {
 
     private final Logger logger = Logger.getLogger(ChessAnnotator.class.getName());
-    private final ArrayList<Position> positions = new ArrayList<>();
+    private final ArrayList<GameRound> rounds = new ArrayList<>();
+    private final ArrayList<GameRound> captures = new ArrayList<>();
 
     private final Scanner input;
 
@@ -36,8 +37,8 @@ public class ChessAnnotator {
 
     private void mainLoop() {
         while (true) {
-            getLogger().info("Escriba un movimiento (en notación estándar) o una operación (*imprimir, *insertar," +
-                    " *consultar, *eliminar, *editar, *capturas, *salir):");
+            getLogger().info("Escriba un movimiento (en notación estándar) o una operación (*imprimir, *insertar [posición] [movimiento]," +
+                    " *consultar, *eliminar [posición], *editar [posición] [movimiento], *capturas, *salir):");
 
             var instruction = input.nextLine();
             var parameters = instruction.split(" ");
@@ -47,6 +48,13 @@ public class ChessAnnotator {
                     // Imprimir (mostrar en consola) en cualquier momento el listado de jugadas
                     //  guardadas.
                     case "*imprimir":
+                        getLogger().info("[White \"%s\"]".formatted(getWhiteName()));
+                        getLogger().info("[Black \"%s\"]".formatted(getBlackName()));
+
+                        for (int i = 0, roundsSize = rounds.size(); i < roundsSize; i++) {
+                            var round = rounds.get(i);
+                            getLogger().info("%d. %s".formatted(i + 1, round.toString()));
+                        }
                         break;
                     // Adición de una ronda en medio de la partida
                     case "*insertar":
@@ -68,7 +76,7 @@ public class ChessAnnotator {
                     // Anotar cada una de las rondas sin límite alguno y siguiendo el sistema de
                     //  anotación estándar.
                     default:
-                        getLogger().info(parseAnnotation(instruction).toString());
+                        rounds.add(parseAnnotation(instruction));
                         break;
                 }
             } catch (Exception e) {

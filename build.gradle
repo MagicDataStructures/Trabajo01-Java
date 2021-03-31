@@ -30,6 +30,9 @@ run {
     standardInput = System.in
 }
 
+sourceCompatibility = 1.15
+targetCompatibility = 1.15
+
 compileJava.options.encoding = 'UTF-8'
 
 tasks.withType(JavaCompile) {
