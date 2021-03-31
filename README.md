@@ -1,7 +1,6 @@
 # Trabajo 1 de la clase Estructuras de Datos 🥳
 
-Sistema de anotación de partidas de
-ajedrez.
+Sistema de anotación de partidas de ajedrez.
 
 ## Objetivos 😎
 
@@ -12,7 +11,7 @@ ajedrez.
 - Imprimir (mostrar en consola) en cualquier momento el listado de jugadas
   guardadas.
 - Llevar un control de las piezas capturadas.
-- No es necesario tener en cuenta la lógica de los movimientos, éste es solo un
+- No es necesario tener en cuenta la lógica de los movimientos, este es solo un
   sistema de anotación.
 - Se permite la corrección de las anotaciones realizadas en una ronda.
 - Se permite la adición de una ronda en medio de la partida (error humano o de
@@ -31,7 +30,9 @@ ajedrez.
   debe ordenar las fichas por el orden alfabético y color. Puede usar más de un
   arreglo.
 - En cualquier momento se pueden consultar las rondas guardadas (requisito 7).
+
+## Aclaraciones 🙄
 - No es necesario imprimir el tablero con dibujos, fichas, cuadros o elementos
   gráficos. Solo debe imprimir la lista de jugadas (anotaciones).
 - El ejemplo de la partida de Kasparov vs Topalov es meramente con fines de
-  control y seguimiento y sobre ésta será evaluada la efectividad del programa.
+  control y seguimiento y sobre esta será evaluada la efectividad del programa.

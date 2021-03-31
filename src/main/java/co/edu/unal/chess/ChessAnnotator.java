@@ -28,18 +28,38 @@ public class ChessAnnotator {
             var instruction = in.nextLine();
 
             switch (instruction) {
-                case "imprimir":
+                // Imprimir (mostrar en consola) en cualquier momento el listado de jugadas
+                //  guardadas.
+                case "*imprimir":
                     break;
-                case "eliminar":
+                // Adición de una ronda en medio de la partida
+                case "*insertar":
                     break;
-                case "editar":
+                // Buscar una ronda por su identificador.
+                case "*buscar":
                     break;
-                case "capturar":
+                case "*eliminar":
+                    break;
+                // Corrección de las anotaciones realizadas en una ronda.
+                case "*editar":
+                    break;
+                // consultar las fichas capturadas
+                //  debe ordenar las fichas por el orden alfabético y color. Puede usar más de un
+                //  arreglo.
+                case "*capturar":
+                    break;
+                // Consultar las rondas guardadas
+                case "*consultar":
+                    break;
+                case "*salir":
+                    return;
+                // Anotar cada una de las rondas sin límite alguno y siguiendo el sistema de
+                //  anotación estándar.
+                default:
                     break;
             }
         }
     }
-
 
     public Logger getLogger() {
         return logger;
